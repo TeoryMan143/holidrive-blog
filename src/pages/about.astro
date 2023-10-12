@@ -1,0 +1,93 @@
+---
+import { IconCode } from '@tabler/icons-react';
+import Layout from '../layouts/Layout.astro';
+import { IconPencilCode } from '@tabler/icons-react';
+import { IconClipboardList } from '@tabler/icons-react';
+import { IconCards } from '@tabler/icons-react';
+import ReportCard from '../components/ReportCard.astro';
+import type React from 'react';
+import { IconCarSuv } from '@tabler/icons-react';
+import { IconArcheryArrow } from '@tabler/icons-react';
+
+interface Team {
+  name: string;
+  description: string;
+  icon: any;
+}
+
+const team: Team[] = [
+  {
+    name: 'Jonathan David Cortes',
+    description:
+      'Es el programador que le da vida a "Holidrive". Su destreza técnica es la columna vertebral del proyecto, garantizando un funcionamiento eficiente de la aplicación, lo que a su vez proporciona a los usuarios una experiencia única y satisfactoria.',
+    icon: IconCode,
+  },
+  {
+    name: 'Samuel Martinez Mesa',
+    description:
+      'Asume una doble función crucial en el equipo. No solo aporta su conocimiento en programación, sino que también despliega su creatividad como diseñador de la aplicación. Su labor es esencial para lograr una interfaz atractiva y fácil de usar, que captará la atención de los usuarios y los mantendrá comprometidos.',
+    icon: IconPencilCode,
+  },
+  {
+    name: 'Valeria Salgado Rendon',
+    description:
+      'una pieza clave en la estrategia de mostrar a "Holidrive" al mundo. Colabora activamente en el diseño de la aplicación y se encarga de la edición del contenido publicitario. Su creatividad y habilidades de redacción garantizan que la aplicación sea promocionada de manera efectiva, llegando a un público más amplio.',
+    icon: IconClipboardList,
+  },
+  {
+    name: 'Laura Sofia Rotavista Diaz',
+    description:
+      'Desempeña un papel fundamental como diseñadora del mockup de la aplicación. Su tarea de crear una representación visual inicial de la interfaz es esencial para la conceptualización y diseño final de la aplicación. Además, su colaboración en la edición de contenido publicitario contribuye a que los mensajes sean impactantes y persuasivos.',
+    icon: IconCards,
+  },
+];
+---
+
+<Layout title='Sobre Nosotros'>
+  <div class='flex flex-col items-center gap-5 mb-10'>
+    <h2
+      class='text-[#FC6904] text-2xl font-poppins text-center px-6 mb-10 lg:mt-8 lg:mb-14 lg:text-5xl'
+    >
+      Nuestro equipo
+    </h2>
+
+    <div
+      class='grid grid-cols-1 px-12 gap-12 md:grid-cols-2 lg:grid-cols-4'
+      transition:name='cards'
+    >
+      {
+        team.map(({ name, description, icon: Icon }) => (
+          <ReportCard title={name} body={description}>
+            <Icon slot='icon' size={40} />
+          </ReportCard>
+        ))
+      }
+    </div>
+
+    <div class='mt-8 md:self-start md:ml-12'>
+      <h4
+        class='font-poppins text-[#FC6904] text-xl text-center mb-6 md:text-start md:text-2xl'
+      >
+        Menciones honoríficas:
+      </h4>
+      <p class='text-center md:text-start'>
+        Gracias por su colaboración y apoyo al proyecto.
+      </p>
+
+      <ul class='[&>li]:list-none mt-5 flex flex-col gap-2'>
+        <li>
+          <span class='text-[#FC6904]'>
+            <IconCarSuv className='inline-block mr-2' />
+          </span> Andres Martinez
+          <span class='text-[#FC6904]'> A.K.A Happy</span>
+        </li>
+        <li>
+          <span class='text-[#FC6904]'>
+            <IconArcheryArrow className='inline-block mr-2' />
+          </span> Sebastian Aguirre
+          <span class='text-[#FC6904]'> A.K.A Acromo</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,44 @@
+---
+import {
+  IconDownload,
+  IconInfoSquareRoundedFilled,
+  IconUserFilled,
+} from '@tabler/icons-react';
+
+const tabs = [
+  {
+    label: 'Descargar',
+    href: '/',
+    icon: IconDownload,
+  },
+  {
+    label: '¿Qué es Holidrive?',
+    href: '/info',
+    icon: IconInfoSquareRoundedFilled,
+  },
+  {
+    label: 'Sobre nosotros',
+    href: '/about',
+    icon: IconUserFilled,
+  },
+];
+---
+
+<nav class='p-5'>
+  <ul class='flex flex-col gap-2'>
+    {
+      tabs.map(({ label, href, icon: Icon }) => (
+        <li class='bg-[#f8e9d9] rounded-md'>
+          <a class='flex items-center  p-4' href={href}>
+            <span class='text-[#FC6904]'>
+              <Icon />
+            </span>
+            <div class='flex grow justify-center'>
+              <span class='text-xl'>{label}</span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

@@ -1,51 +1,62 @@
 ---
+import { Image } from 'astro:assets';
+import logoText from '../images/logo-text.png';
+import '@fontsource/poppins';
+import '@fontsource-variable/catamaran';
+import { IconMenu2 } from '@tabler/icons-react';
+import NavTabs from '../components/NavTabs.astro';
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='description'
+      content='Un proyecto para mejorar la movilidad de la ciudad'
+    />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' href='/favicon.ico' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body class='font-catamaran bg-[#FBF3EB] flex flex-col h-screen'>
+    <header
+      class='flex items-center justify-center w-screen relative p-3 lg:hidden'
+    >
+      <button class='peer lg:hidden relative left-2 -top-1'>
+        <span class='text-[#FC6904]'>
+          <IconMenu2 size={30} />
+        </span>
+      </button>
+
+      <div
+        class='z-20 fixed top-0 -left-full h-screen w-8/12 bg-[#FBF3EB] shadow-2xl peer-focus:left-0 peer:transition ease-out delay-150 duration-300 lg:hidden'
+      >
+        <NavTabs />
+      </div>
+
+      <div class='flex grow justify-center'>
+        <Image src={logoText} alt='Holidrive' class='max-w-[17rem]' />
+      </div>
+    </header>
+    <main class='flex flex-grow'>
+      <aside class='hidden lg:flex flex-col items-center p-5 bg-[#f0dbc6]'>
+        <Image src={logoText} alt='Holidrive' class='max-w-[17rem]' />
+        <NavTabs />
+      </aside>
+      <article class='flex-grow flex justify-center'>
+        <slot />
+      </article>
+    </main>
+    <style is:global></style>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

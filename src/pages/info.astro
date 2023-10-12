@@ -1,0 +1,58 @@
+---
+import ReportCard from '../components/ReportCard.astro';
+import Layout from '../layouts/Layout.astro';
+import IconHole from '../svgs/IconHole.astro';
+import IconRoadWork from '../svgs/IconRoadWork.astro';
+import IconDanger from '../svgs/IconDanger.astro';
+---
+
+<Layout title='Holidrive'>
+  <div>
+    <div class='bg-[#FC6904] px-4 py-3 mx-2 rounded-md my-5'>
+      <h1 class='text-center text-white font-poppins text-2xl lg:text-4xl'>
+        ¡Bienvenido a Holidrive!
+      </h1>
+    </div>
+    <div class='flex flex-col items-center gap-5 mb-10'>
+      <p class='text-center soft-wrap text-lg lg:text-xl'>
+        Holidrive es una plataforma donde puedes reportar calamidades en las
+        vías publicas.
+      </p>
+
+      <h2
+        class='text-[#FC6904] text-2xl font-poppins text-center px-6 mb-10 lg:text-4xl'
+      >
+        ¿Que situaciones puedo reportar?
+      </h2>
+      <div
+        class='grid grid-cols-1 px-12 gap-12 lg:grid-cols-3'
+        transition:name='cards'
+      >
+        <ReportCard
+          title='Construcciones'
+          body='Obras en construcción que obstruyan las vías o que los usuarios deban tener en cuenta.'
+        >
+          <IconRoadWork slot='icon' size={50} />
+        </ReportCard>
+        <ReportCard
+          title='Huecos'
+          body='Destrucciones profundas en las vías que puedan afectar la integridad de los conductores.'
+        >
+          <IconHole slot='icon' size={50} />
+        </ReportCard>
+        <ReportCard
+          title='Zonas Peligrosas'
+          body='Barrios o comunas con altos indicios de crímen, vías peligrosas u otros factores.'
+        >
+          <IconDanger slot='icon' size={50} />
+        </ReportCard>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .soft-wrap {
+    text-wrap: balance;
+  }
+</style>

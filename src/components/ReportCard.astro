@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  body: string;
+}
+
+const { title, body } = Astro.props;
+---
+
+<div
+  class='relative flex flex-col border-2 p-6 pt-9 border-[#FC6904] items-center max-w-[18rem] rounded-[1rem]'
+>
+  <div
+    class='absolute rounded-full border-2 border-[#FC6904] p-2 -top-9 bg-[#FBF3EB]'
+  >
+    <span class='text-[#FC6904]'>
+      <slot name='icon' />
+    </span>
+  </div>
+
+  <h3 class='font-poppins text-xl text-[#FC6904] text-center font-semibold'>
+    {title}
+  </h3>
+  <div class='w-full my-2'>
+    <div class='bg-[#FC6904] h-[1px]'></div>
+  </div>
+  <p class='text-center'>
+    {body}
+  </p>
+</div>
