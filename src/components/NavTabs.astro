@@ -25,11 +25,11 @@ const tabs = [
 ---
 
 <nav class='p-5'>
-  <ul class='flex flex-col gap-2'>
+  <ul class='flex flex-col gap-2 lg:gap-8'>
     {
       tabs.map(({ label, href, icon: Icon }) => (
-        <li class='bg-[#f8e9d9] rounded-md'>
-          <a class='flex items-center  p-4' href={href}>
+        <li class='bg-[#f8e9d9] rounded-md border-2 border-[#f8e9d9] lg:hover:border-[#FC6904] transition'>
+          <a class='flex items-center p-4' href={href}>
             <span class='text-[#FC6904]'>
               <Icon />
             </span>
