@@ -26,14 +26,14 @@ const appDownloadUrl =
         href={appDownloadUrl}
         target='_blank'
         rel='noopener noreferrer'
-        class='no-underline text-[#FC6904] font-poppins text-xl border-2 rounded-[2rem] border-[#FC6904] px-6 py-3 flex flex-nowrap gap-2 hover:bg-[#FC6904] hover:text-[#FBF3EB] transition duration-200 group relative overflow-hidden'
+        class='no-underline text-[#FC6904] font-poppins text-xl border-2 rounded-[2rem] border-[#FC6904] px-6 py-3 flex flex-nowrap gap-2 hover:bg-[#FC6904] focus-within:bg-[#FC6904] hover:text-[#FBF3EB] focus-within:text-[#FBF3EB] transition duration-200 group relative overflow-hidden'
       >
         <span>Descargar</span>
         <IconDownload
-          className='inline-block group-hover:-translate-y-10 transition text-[#FC6904]'
+          className='inline-block group-hover:-translate-y-10 group-focus-within:-translate-y-10 transition text-[#FC6904]'
         />
         <IconBrandAndroid
-          className='absolute right-6 top-14 inline-block group-hover:-translate-y-[2.6rem] transition text-[#FBF3EB]'
+          className='absolute right-6 top-14 inline-block group-hover:-translate-y-[2.6rem] group-focus-within:-translate-y-[2.6rem] transition text-[#FBF3EB]'
         />
       </a>
     </div>
