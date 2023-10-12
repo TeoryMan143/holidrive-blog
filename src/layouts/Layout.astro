@@ -39,7 +39,7 @@ const { title } = Astro.props;
       </button>
 
       <div
-        class='z-20 fixed top-0 -left-full h-screen w-8/12 bg-[#FBF3EB] shadow-2xl peer-focus:left-0 peer:transition ease-out delay-150 duration-300 lg:hidden'
+        class='z-20 fixed top-0 -left-full h-screen w-8/12 bg-[#FBF3EB] shadow-2xl peer-focus:left-0 peer:transition ease-out delay-100 duration-300 lg:hidden'
       >
         <NavTabs />
       </div>
@@ -50,7 +50,7 @@ const { title } = Astro.props;
     </header>
     <main class='flex flex-grow'>
       <aside class='hidden lg:flex flex-col items-center p-5 bg-[#f0dbc6]'>
-        <Image src={logoText} alt='Holidrive' class='max-w-[17rem]' />
+        <Image src={logoText} alt='Holidrive' class='max-w-[17rem] mb-6' />
         <NavTabs />
       </aside>
       <article class='flex-grow flex justify-center'>
